@@ -10,11 +10,11 @@ export default function Header(): JSX.Element {
 
   return (
     <header
-      className={`min-w-full px-6 fixed transition-all animate-300 ${
+      className={`min-w-full fixed transition-all animate-300 px-6 ${
         scroll ? "bg-red-500" : "bg-gray-50"
       }`}
     >
-      <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4 px-6">
+      <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4">
         <span
           className={`font-bold tracking-wide ${
             scroll ? "text-white" : "text-black"
