@@ -6,7 +6,7 @@ import hero from "/public/assets/hero.jpg";
 const Home: NextPage = () => {
   return (
     <Page>
-      <Paragraph className="max-w-screen-xl h-screen flex flex-col justify-center mx-auto">
+      <Paragraph className="max-w-screen-xl h-screen flex flex-col justify-center mx-auto px-6">
         <h1 className="text-6xl font-bold my-4">
           Welcome to <span className="text-red-500">Homebites</span>
         </h1>
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           </button>
         </ul>
       </Paragraph>
-      <Paragraph className="max-w-screen-xl flex flex-col justify-center mx-auto">
+      <Paragraph className="max-w-screen-xl flex flex-col justify-center mx-auto px-6">
         <h1 className="text-4xl font-bold my-4">
           Missing <span className="text-red-500">Home?</span> We got you.
         </h1>
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         </h3>
       </Paragraph>
       <ListFood />
-      <Paragraph className="max-w-screen-xl flex flex-col items-end mx-auto">
+      <Paragraph className="max-w-screen-xl flex flex-col items-end mx-auto px-6">
         <h1 className="text-4xl font-bold my-4">
           Missing <span className="text-red-500">Home?</span> We got you.
         </h1>
