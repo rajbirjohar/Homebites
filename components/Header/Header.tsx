@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
+import { useSession, signIn, signOut } from 'next-auth/react'
+
 
 export default function Header(): JSX.Element {
+  const { data: session } = useSession();
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 50);
     });
   }, []);
-
+  const handleSignin = (e) => {
+    e.preventDefault()
+    console.log(process.env.GOOGLE_SECRET)
+    signIn()
+  }
   return (
     <header
       className={`min-w-full fixed transition-all animate-300 px-6 ${
@@ -23,7 +30,7 @@ export default function Header(): JSX.Element {
           Homebites
         </span>
         <ul className="flex gap-4">
-          <button className={scroll ? "text-white" : "text-red-500"}>
+          <button className={scroll ? "text-white" : "text-red-500"} onClick={handleSignin}>
             Sign In
           </button>
           <button
