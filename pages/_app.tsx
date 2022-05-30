@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 import { Header, Layout } from "../components";
 import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: {session,...pageProps} }: AppProps) {
   return (
-    <SessionProvider session={pageProps.session}>
+    <SessionProvider session={session}>
     <Layout>
       <Header />
       <Component {...pageProps} />

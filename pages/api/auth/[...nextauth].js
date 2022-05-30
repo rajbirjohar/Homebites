@@ -12,26 +12,9 @@ export default NextAuth({
           prompt: "consent",
           access_type: "offline",
           response_type: "code"
-        }
-      }
-    })
-  ],
-  jwt: {
-      encryption: true,
-  },
-  secret: process.env.secret,
-  callbacks: {
-      async jwt(token, account){
-          if(account?.accessToken){
-              token.accessToken = account.accessToken;
-          }
-          return token;
+        },
       },
-      redirect: async(url, _baseUrl) => {
-          if(url ==='/profile') {
-              return Promise.resolve('/');
-          }
-          return Promise.resolve('/');
-      }
-  }
-})
+    }),
+  ],
+  
+});
