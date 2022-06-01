@@ -11,11 +11,7 @@ export default function Header(): JSX.Element {
       setScroll(window.scrollY > 50);
     });
   }, []);
-  const handleSignin = (e) => {
-    e.preventDefault()
-    console.log(process.env.GOOGLE_SECRET)
-    signIn()
-  }
+
   if(session)
   {
     return (
@@ -38,7 +34,7 @@ export default function Header(): JSX.Element {
                 scroll ? "text-white" : "text-red-500"
               }`}
             >
-              {session.user?.email} <br />
+              {session.user?.name} <br />
             </span>
             <button
               className={`rounded-full py-2 px-4 ${
@@ -67,13 +63,13 @@ export default function Header(): JSX.Element {
           Homebites
         </span>
         <ul className="flex gap-4">
-          <button className={scroll ? "text-white" : "text-red-500"} onClick={handleSignin}>
+          <button className={scroll ? "text-white" : "text-red-500"} onClick={() => signIn('google')}>
             Sign In
           </button>
           <button
             className={`rounded-full py-2 px-4 ${
               scroll ? "bg-white text-red-500" : "bg-red-500 text-white"
-            }`}onClick={handleSignin}
+            }`}onClick={() => signIn('google')}
           >
             Sign Up
           </button>
