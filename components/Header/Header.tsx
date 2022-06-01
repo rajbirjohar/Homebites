@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSession, signIn, signOut } from 'next-auth/react'
-
-
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 export default function Header(): JSX.Element {
   const { data: session } = useSession();
@@ -12,8 +11,7 @@ export default function Header(): JSX.Element {
     });
   }, []);
 
-  if(session)
-  {
+  if (session) {
     return (
       <header
         className={`min-w-full fixed transition-all animate-300 px-6 ${
@@ -39,7 +37,8 @@ export default function Header(): JSX.Element {
             <button
               className={`rounded-full py-2 px-4 ${
                 scroll ? "bg-white text-red-500" : "bg-red-500 text-white"
-              }`}onClick={() => signOut()}
+              }`}
+              onClick={() => signOut()}
             >
               Sign Out
             </button>
@@ -55,21 +54,27 @@ export default function Header(): JSX.Element {
       }`}
     >
       <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4">
-        <span
-          className={`font-bold tracking-wide ${
-            scroll ? "text-white" : "text-black"
-          }`}
-        >
-          Homebites
-        </span>
+        <Link href="/" passHref>
+          <span
+            className={`font-bold tracking-wide cursor-pointer ${
+              scroll ? "text-white" : "text-black"
+            }`}
+          >
+            Homebites
+          </span>
+        </Link>
         <ul className="flex gap-4">
-          <button className={scroll ? "text-white" : "text-red-500"} onClick={() => signIn('google')}>
+          <button
+            className={scroll ? "text-white" : "text-red-500"}
+            onClick={() => signIn("google")}
+          >
             Sign In
           </button>
           <button
             className={`rounded-full py-2 px-4 ${
               scroll ? "bg-white text-red-500" : "bg-red-500 text-white"
-            }`}onClick={() => signIn('google')}
+            }`}
+            onClick={() => signIn("google")}
           >
             Sign Up
           </button>
