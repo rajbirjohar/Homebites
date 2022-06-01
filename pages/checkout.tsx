@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import toast from "react-hot-toast";
 import { Page, Paragraph } from "../components";
 
 const Input = (props: {
@@ -103,6 +104,7 @@ const Checkout: NextPage = () => {
               <button
                 className="rounded-full bg-red-500 text-white py-2 px-4 my-3"
                 type="button"
+                onClick={() => toast.success("Your food is being prepared!")}
               >
                 Confirm Purchase
               </button>
