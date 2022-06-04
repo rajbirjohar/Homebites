@@ -13,7 +13,7 @@ export default function Header(): JSX.Element {
     });
   }, []);
 
-  const cart = useStore(state => state.count);
+  const cart = useStore(state => state.cart.length) || 0;
 
   return (
     <header

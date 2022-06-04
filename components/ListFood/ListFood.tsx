@@ -14,7 +14,7 @@ function ListFood(): JSX.Element {
       city: faker.address.cityName(),
       phoneNumber: faker.phone.phoneNumber(),
       description: faker.lorem.sentence(),
-      count: 0
+      price: 0
     });
   }
 

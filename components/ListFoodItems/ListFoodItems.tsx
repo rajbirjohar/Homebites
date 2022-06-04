@@ -14,7 +14,7 @@ export default function ListFoodItems(): JSX.Element {
       postCode: "",
       city: "",
       phoneNumber: "",
-      count: 1,
+      price: faker.finance.amount(1,20) as unknown as number,
     });
   }
 
@@ -31,7 +31,7 @@ export default function ListFoodItems(): JSX.Element {
           postCode={foodItem.postCode}
           city={foodItem.city}
           phoneNumber={foodItem.phoneNumber}
-          count={0}
+          price={foodItem.price}
         />
       ))}
       <div className="flex justify-end">

@@ -7,7 +7,7 @@ interface Food {
   city: string;
   phoneNumber: string;
   description: string;
-  count: number;
+  price: number;
 }
 
 interface Store {
