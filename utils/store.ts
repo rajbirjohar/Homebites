@@ -1,34 +1,16 @@
 import create from "zustand";
 
-const useStore = create<Food & AddToCart>((set) => ({
-  id: "",
-  image: "",
-  name: "",
-  email: "",
-  postCode: "",
-  city: "",
-  phoneNumber: "",
-  favoriteQuote: "",
-  addFood: () =>
-    set((state) => ({
-      id: state.id,
-      name: state.name,
-      email: state.email,
-      postCode: state.postCode,
-      city: state.city,
-      phoneNumber: state.phoneNumber,
-      favoriteQuote: state.favoriteQuote,
-    })),
-}));
+interface Store {
+  count: number;
+  addToCart: () => void;
+  removeFromCart: () => void;
+  removeAll: () => void;
 
-function cart() {
-  const name = useStore((state) => state.name);
 }
 
-function addToCart() {
-  console.log("here");
-  useStore((state) => state.addFood());
-  console.log(cart);
-}
-
-export { cart, addToCart };
+export const useStore = create<Store>(set => ({
+  count: 0,
+  addToCart: () => set(state => ({ count: state.count + 1 })),
+  removeFromCart: () => set(state => ({ count: state.count - 1 })),
+  removeAll: () => set({ count: 0 })
+}))

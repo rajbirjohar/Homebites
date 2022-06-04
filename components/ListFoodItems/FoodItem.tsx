@@ -1,11 +1,13 @@
 import { IconCircleMinus, IconCirclePlus } from "@tabler/icons";
 import { useState } from "react";
-export default function FoodItem(props: {
-  id: string;
-  name: string;
-  description: string;
-}): JSX.Element {
+import { useStore } from "../../utils/store";
+
+export default function FoodItem(props: Food): JSX.Element {
   const [quantity, setQuantity] = useState(0);
+
+  const addToCart = useStore((state) => state.addToCart);
+  const removeFromCart = useStore((state) => state.removeFromCart);
+
   return (
     <li className="flex items-start justify-between p-4 shadow-lg rounded-lg bg-white">
       <div>
@@ -17,6 +19,7 @@ export default function FoodItem(props: {
           onClick={() => {
             if (quantity > 0) {
               setQuantity(quantity - 1);
+              removeFromCart();
             }
           }}
           className="cursor-pointer"
@@ -25,7 +28,10 @@ export default function FoodItem(props: {
         </button>
         {quantity}
         <button
-          onClick={() => setQuantity(quantity + 1)}
+          onClick={() => {
+            setQuantity(quantity + 1);
+            addToCart();
+          }}
           className="cursor-pointer"
         >
           <IconCirclePlus />

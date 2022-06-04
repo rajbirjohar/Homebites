@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import toast from "react-hot-toast";
 import { Page, Paragraph } from "../components";
+import { useStore } from "../utils/store";
 
 const Input = (props: {
   label: string;
@@ -29,6 +30,8 @@ const Input = (props: {
 };
 
 const Checkout: NextPage = () => {
+  const resetCart = useStore((state) => state.removeAll);
+
   return (
     <Page>
       <Paragraph className="max-w-screen-xl flex flex-col justify-center mx-auto py-24 px-6">
@@ -104,7 +107,10 @@ const Checkout: NextPage = () => {
               <button
                 className="rounded-full bg-red-500 text-white py-2 px-4 my-3"
                 type="button"
-                onClick={() => toast.success("Your food is being prepared!")}
+                onClick={() => {
+                  toast.success("Your food is being prepared!");
+                  resetCart();
+                }}
               >
                 Confirm Purchase
               </button>

@@ -1,7 +1,6 @@
 import { faker } from "@faker-js/faker";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { addToCart, cart } from "../../utils/store";
 
 function ListFood(): JSX.Element {
   const foods: Food[] = [];
@@ -14,7 +13,8 @@ function ListFood(): JSX.Element {
       postCode: faker.address.zipCode(),
       city: faker.address.cityName(),
       phoneNumber: faker.phone.phoneNumber(),
-      favoriteQuote: faker.lorem.sentence(),
+      description: faker.lorem.sentence(),
+      count: 0
     });
   }
 

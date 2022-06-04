@@ -3,14 +3,21 @@ import Link from "next/link";
 import FoodItem from "./FoodItem";
 
 export default function ListFoodItems(): JSX.Element {
-  const foodItems = [];
+  const foodItems: Food[] = [];
   for (let i = 0; i < 10; i++) {
     foodItems.push({
       id: faker.database.mongodbObjectId(),
       name: faker.lorem.word(),
-      description: faker.lorem.words(10),
+      description: faker.lorem.sentence(),
+      image: "",
+      email: "",
+      postCode: "",
+      city: "",
+      phoneNumber: "",
+      count: 1,
     });
   }
+
   return (
     <ul className="flex flex-col gap-6 my-6 max-w-2xl">
       {foodItems.map((foodItem) => (
@@ -19,6 +26,12 @@ export default function ListFoodItems(): JSX.Element {
           id={foodItem.id}
           name={foodItem.name}
           description={foodItem.description}
+          image={foodItem.image}
+          email={foodItem.email}
+          postCode={foodItem.postCode}
+          city={foodItem.city}
+          phoneNumber={foodItem.phoneNumber}
+          count={0}
         />
       ))}
       <div className="flex justify-end">

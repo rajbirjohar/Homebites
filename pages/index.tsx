@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 
   return (
     <Page>
-      <section className="bg-gradient-to-tr from-red-100 to-rose-300">
+      <section className="bg-gradient-to-br from-red-200 to-rose-500">
         <Paragraph className="max-w-screen-xl flex flex-col justify-center mx-auto px-6">
           <div className="py-36">
             <h1 className="text-6xl font-bold my-4">
@@ -28,13 +28,13 @@ const Home: NextPage = () => {
               ) : (
                 <>
                   <button
-                    className="text-red-500 font-bold"
+                    className="text-red-500 font-bold cursor-pointer hover:text-red-600"
                     onClick={() => signIn("google")}
                   >
                     Sign In
                   </button>
                   <button
-                    className="rounded-full bg-red-500 text-white py-2 px-4 font-bold"
+                    className="rounded-full bg-red-500 text-white py-2 px-4 font-bold cursor-pointer hover:bg-red-600"
                     onClick={() => signIn("google")}
                   >
                     Sign Up
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           <Favorites />
         </Paragraph>
       </section>
-      <section className="bg-rose-100 py-10">
+      <section className="bg-rose-50 py-10">
         <Paragraph className="max-w-screen-xl flex flex-col justify-center mx-auto px-6 my-10">
           <h1 className="text-4xl font-bold mb-4">
             Missing <span className="text-red-500">Home?</span> We got you.

@@ -6,9 +6,12 @@ interface Food {
   postCode: string;
   city: string;
   phoneNumber: string;
-  favoriteQuote: string;
+  description: string;
+  count: number;
 }
 
-interface AddToCart {
-  addFood: () => void;
+interface Store {
+  cart: Food[];
+  addToCart: (id: string) => void;
+  removeFromCart: (id: string) => void;
 }
