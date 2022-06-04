@@ -8,6 +8,7 @@ interface Food {
   phoneNumber: string;
   description: string;
   count: number;
+  price: string;
 }
 
 interface Store {

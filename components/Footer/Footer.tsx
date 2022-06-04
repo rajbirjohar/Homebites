@@ -43,10 +43,9 @@ const policies = [
 const help = ["Account Details", "Order History", "Help"];
 
 const business = [
-  "Become a Driver",
-  "Be a Partner Cook",
   "Get Drivers for Deliveries",
   "Get Homebites for Work",
+  "Get Homebites Catering"
 ];
 
 const Links = (props: { links: string[] }) => {

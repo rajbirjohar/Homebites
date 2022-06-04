@@ -15,6 +15,7 @@ function Favorites(): JSX.Element {
       phoneNumber: faker.phone.phoneNumber(),
       description: faker.lorem.sentence(),
       count: 0,
+      price: faker.commerce.price(10, 40, 2,"$" )
     });
   }
 
@@ -28,6 +29,10 @@ function Favorites(): JSX.Element {
               {food.name}
             </h3>
           </Link>
+          <p className="text-gray-500">
+            Price {" "}
+            <span className="text-black font-medium">{food.price}</span>
+          </p>         
           <p className="text-gray-500">
             Located @{" "}
             <span className="text-black font-medium">{food.postCode}</span>

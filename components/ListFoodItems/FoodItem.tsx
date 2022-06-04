@@ -11,7 +11,7 @@ export default function FoodItem(props: Food): JSX.Element {
   return (
     <li className="flex items-start justify-between p-4 shadow-lg rounded-lg bg-white">
       <div>
-        <h3 className="text-red-500 font-semibold text-xl">{props.name}</h3>
+        <h3 className="text-red-500 font-semibold text-xl">{props.name} {} {props.price}</h3>
         <p>{props.description}</p>
       </div>
       <div className="flex items-center gap-2">
