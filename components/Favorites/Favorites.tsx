@@ -21,23 +21,24 @@ function Favorites(): JSX.Element {
   return (
     <ul className="grid md:grid-cols-3 md:grid-rows-2 sm:grid-cols-2 sm:grid-rows-3 grid-cols-1 grid-rows-6  gap-10 max-w-screen-xl">
       {foods.map((food) => (
-        <li className="flex flex-col" key={food.id}>
-          <img src={food.image} className="w-auto h-80 rounded-lg" />
-          <Link href={`/${food.id}`} passHref key={food.postCode}>
+        <Link href={`/${food.id}`} passHref key={food.postCode}>
+          <li className="flex flex-col cursor-pointer">
+            <img src={food.image} className="w-auto h-80 rounded-lg" />
             <h3 className="my-2 font-semibold text-lg cursor-pointer hover:text-red-400">
               {food.name}
             </h3>
-          </Link>
-          <p className="text-gray-500">
-            Located @{" "}
-            <span className="text-black font-medium">{food.postCode}</span>
-          </p>
-          <Link href={"/checkout"} passHref>
-            <button className="rounded-full bg-red-500 text-white py-2 px-4 my-3">
-              Add to Cart
-            </button>
-          </Link>
-        </li>
+
+            <p className="text-gray-500">
+              Located @{" "}
+              <span className="text-black font-medium">{food.postCode}</span>
+            </p>
+            <Link href={`/${food.id}`} passHref>
+              <button className="rounded-full bg-red-500 text-white py-2 px-4 my-3 cursor-pointer hover:bg-red-600">
+                Discover Food
+              </button>
+            </Link>
+          </li>
+        </Link>
       ))}
     </ul>
   );

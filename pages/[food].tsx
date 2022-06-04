@@ -1,13 +1,13 @@
 import faker from "@faker-js/faker";
 import { NextPage } from "next";
-import { Page, Paragraph } from "../components";
+import { ListFood, Page, Paragraph } from "../components";
 import ListFoodItems from "../components/ListFoodItems/ListFoodItems";
 import dynamic from "next/dynamic";
 
 const Food: NextPage = () => {
   return (
     <Page>
-      <Paragraph className="max-w-screen-xl flex md:flex-row flex-col justify-start mx-auto py-24 px-6 gap-10">
+      <section className="max-w-screen-xl flex md:flex-row flex-col justify-start mx-auto py-24 px-6 gap-10">
         <div>
           <h1 className="text-6xl font-bold my-4">Pick Your Food</h1>
           <h3 className="text-xl max-w-2xl text-gray-800">
@@ -39,7 +39,14 @@ const Food: NextPage = () => {
             />
           </div>
         </div>
-      </Paragraph>
+      </section>
+      <section className="max-w-screen-xl flex flex-col justify-center mx-auto px-6">
+        <h1 className="text-4xl font-bold">
+          Craving <span className="text-red-500">More</span> like
+          this?
+        </h1>
+      </section>
+      <ListFood />
     </Page>
   );
 };

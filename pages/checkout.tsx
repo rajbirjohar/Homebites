@@ -30,11 +30,14 @@ const Input = (props: {
 };
 
 const Checkout: NextPage = () => {
+  const removeFromCart = useStore((state) => state.removeFromCart);
   const resetCart = useStore((state) => state.removeAll);
-
   const cart = useStore((state) => state.cart);
 
-  const total = cart.reduce((acc, val) => acc + (Number(val.price) || 0), 0);
+  const total =
+    Math.trunc(
+      cart.reduce((acc, val) => acc + (Number(val.price) || 0), 0) * 100
+    ) / 100;
 
   return (
     <Page>
@@ -132,10 +135,18 @@ const Checkout: NextPage = () => {
                 className="border-b-2 border-gray-300 py-4 flex items-start justify-between gap-6"
               >
                 <div>
-                  <h3>{item.name}</h3>
+                  <h3 className="font-semibold">{item.name}</h3>
                   <p>{item.description}</p>
                 </div>
-                <p>${item.price}</p>
+                <div className="flex flex-col items-end">
+                  <p>${item.price}</p>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-red-500 cursor-pointer hover:text-red-600"
+                  >
+                    remove
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

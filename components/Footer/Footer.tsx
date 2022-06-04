@@ -67,7 +67,7 @@ const Links = (props: { links: string[] }) => {
 export default function Footer(): JSX.Element {
   return (
     <footer className="bg-gray-800 text-white px-6">
-      <div className="max-w-screen-xl flex gap-16 mx-auto py-16">
+      <div className="max-w-screen-xl flex md:flex-row flex-col md:gap-16 gap-6 mx-auto py-16">
         <nav>
           <h4 className="font-semibold tracking-wide">Get to Know Us</h4>
           <Links links={contactLinks} />
@@ -85,7 +85,7 @@ export default function Footer(): JSX.Element {
           <Links links={business} />
         </nav>
       </div>
-      <div className="max-w-screen-xl mx-auto flex md:flex-row flex-col align-center justify-between pb-8">
+      <div className="max-w-screen-xl mx-auto flex md:flex-row flex-col align-center justify-between pb-8 md:gap-0 gap-6">
         <div className="flex md:flex-row flex-col align-center gap-4">
           {policies.map((policy) => (
             <p
