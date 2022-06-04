@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Header, Layout } from "../components";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
+import Footer from "../components/Footer/Footer";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <Layout>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </Layout>
     </SessionProvider>
   );

@@ -11,73 +11,47 @@ export default function Header(): JSX.Element {
     });
   }, []);
 
-  if (session) {
-    return (
-      <header
-        className={`min-w-full fixed transition-all animate-300 px-6 ${
-          scroll ? "bg-red-500" : "bg-gray-50"
-        }`}
-      >
-        <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4">
-          <span
-            className={`font-bold tracking-wide ${
-              scroll ? "text-white" : "text-black"
-            }`}
-          >
-            Homebites
-          </span>
-          <ul className="flex gap-4">
-            <span
-              className={`font-bold flex gap-4 py-2 px-4 ${
-                scroll ? "text-white" : "text-red-500"
-              }`}
-            >
-              {session.user?.name} <br />
-            </span>
-            <button
-              className={`rounded-full py-2 px-4 ${
-                scroll ? "bg-white text-red-500" : "bg-red-500 text-white"
-              }`}
-              onClick={() => signOut()}
-            >
-              Sign Out
-            </button>
-          </ul>
-        </nav>
-      </header>
-    );
-  }
   return (
     <header
-      className={`min-w-full fixed transition-all animate-300 px-6 ${
-        scroll ? "bg-red-500" : "bg-gray-50"
+      className={`min-w-full fixed transition-all animate-100 px-6 z-10 ${
+        scroll ? "bg-gray-50" : "bg-none"
       }`}
     >
       <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4">
-        <Link href="/" passHref>
-          <span
-            className={`font-bold tracking-wide cursor-pointer ${
-              scroll ? "text-white" : "text-black"
-            }`}
-          >
+        <Link href="/">
+          <span className="text-red-500 font-bold tracking-wide cursor-pointer">
             Homebites
           </span>
         </Link>
         <ul className="flex gap-4">
-          <button
-            className={scroll ? "text-white" : "text-red-500"}
-            onClick={() => signIn("google")}
-          >
-            Sign In
-          </button>
-          <button
-            className={`rounded-full py-2 px-4 ${
-              scroll ? "bg-white text-red-500" : "bg-red-500 text-white"
-            }`}
-            onClick={() => signIn("google")}
-          >
-            Sign Up
-          </button>
+          {session ? (
+            <>
+              <span className="font-bold flex gap-4 py-2 px-4 text-red-500">
+                {session.user?.name}
+              </span>
+              <button
+                className="font-bold rounded-full text-black"
+                onClick={() => signOut()}
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="font-bold rounded-full text-red-500"
+                onClick={() => signIn("google")}
+              >
+                Sign In
+              </button>
+              <button
+                className="font-bold flex gap-4 py-2 px-4 text-white bg-red-500 rounded-full cursor-pointer"
+                onClick={() => signIn("google")}
+              >
+                Sign Up
+              </button>
+            </>
+          )}
         </ul>
       </nav>
     </header>

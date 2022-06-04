@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { addToCart, cart } from "../../utils/store";
 
-function ListFood(): JSX.Element {
+function Favorites(): JSX.Element {
   const foods: Food[] = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 6; i++) {
     foods.push({
       id: faker.database.mongodbObjectId(),
       image: faker.image.food(500, 500, true),
@@ -19,10 +19,10 @@ function ListFood(): JSX.Element {
   }
 
   return (
-    <ul className="flex min-w-screen overflow-x-scroll gap-3 p-3 hide-scroll pl-36 my-10">
+    <ul className="grid md:grid-cols-3 md:grid-rows-2 sm:grid-cols-2 sm:grid-rows-3 grid-cols-1 grid-rows-6  gap-10 max-w-screen-xl">
       {foods.map((food) => (
-        <li key={food.id} className="flex flex-col flex-shrink-0 p-6 shadow-lg my-6 rounded-lg bg-white">
-          <img src={food.image} className="w-80 h-80 rounded-lg" />
+        <li className="flex flex-col" key={food.id}>
+          <img src={food.image} className="w-auto h-80 rounded-lg" />
           <Link href={`/${food.id}`} passHref key={food.postCode}>
             <h3 className="my-2 font-semibold text-lg cursor-pointer hover:text-red-400">
               {food.name}
@@ -44,4 +44,4 @@ function ListFood(): JSX.Element {
 }
 
 // Fixes hydration error and seems to be prevalent with React 18
-export default dynamic(() => Promise.resolve(ListFood), { ssr: false });
+export default dynamic(() => Promise.resolve(Favorites), { ssr: false });
