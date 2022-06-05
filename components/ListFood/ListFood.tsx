@@ -2,9 +2,11 @@ import { faker } from "@faker-js/faker";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { addToCart, cart } from "../../utils/store";
+import { useCart } from "../../pages/cart"
 
 function ListFood(): JSX.Element {
   const foods: Food[] = [];
+  const increaseCart = useCart(state => state.increaseCart)
   for (let i = 0; i < 10; i++) {
     foods.push({
       id: faker.database.mongodbObjectId(),
@@ -32,11 +34,11 @@ function ListFood(): JSX.Element {
             Located @{" "}
             <span className="text-black font-medium">{food.postCode}</span>
           </p>
-          <Link href={"/checkout"} passHref>
-            <button className="rounded-full bg-red-500 text-white py-2 px-4 my-3">
-              Add to Cart
-            </button>
-          </Link>
+          
+          <button className="rounded-full bg-red-500 text-white py-2 px-4 my-3" onClick={increaseCart}>
+            Add to Cart
+          </button>
+          
         </li>
       ))}
     </ul>

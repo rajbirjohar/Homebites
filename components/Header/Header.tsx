@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import { useCart } from '../../pages/cart';
 
 export default function Header(): JSX.Element {
   const { data: session } = useSession();
   const [scroll, setScroll] = useState(false);
+  const items = useCart(state => state.items);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 50);
@@ -42,6 +44,13 @@ export default function Header(): JSX.Element {
             >
               Sign Out
             </button>
+            <button
+              className={`rounded-full py-2 px-4 ${
+                scroll ? "text-white" : "text-red-500"
+              }`}
+              >
+                items
+            </button>
           </ul>
         </nav>
       </header>
@@ -78,7 +87,15 @@ export default function Header(): JSX.Element {
           >
             Sign Up
           </button>
+          <button
+            className={`rounded-full py-2 px-4 ${
+              scroll ? "text-white" : "text-red-500"
+            }`}
+            >
+              {items}
+          </button>
         </ul>
+        
       </nav>
     </header>
   );

@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           </h2>
           <ul className="flex gap-4 my-4">
             <p className="rounded-full bg-red-500 text-white py-2 px-4">
-              Welcome {session.user?.name}! <br />
+              Welcome {session.user?.name} <br />
             </p>
           </ul>
         </Paragraph>
@@ -59,8 +59,8 @@ const Home: NextPage = () => {
           Your home away from home, but on a plate.
         </h2>
         <ul className="flex gap-4 my-4">
-          <button className="text-red-500">Sign In</button>
-          <button className="rounded-full bg-red-500 text-white py-2 px-4">
+          <button className="text-red-500" onClick={() => signIn("google")}>Sign In</button>
+          <button className="rounded-full bg-red-500 text-white py-2 px-4" onClick={() => signIn("google")}>
             Sign Up
           </button>
         </ul>
