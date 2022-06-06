@@ -34,6 +34,8 @@ const Checkout: NextPage = () => {
   const resetCart = useStore((state) => state.removeAll);
   const cart = useStore((state) => state.cart);
 
+  const subscribe = useStore.subscribe(console.log);
+
   const total =
     Math.trunc(
       cart.reduce((acc, val) => acc + (Number(val.price) || 0), 0) * 100

@@ -13,7 +13,7 @@ export default function Header(): JSX.Element {
     });
   }, []);
 
-  const cart = useStore(state => state.cart.length) || 0;
+  const cart = useStore((state) => state.cart.length) || 0;
 
   return (
     <header
@@ -39,11 +39,6 @@ export default function Header(): JSX.Element {
               >
                 Sign Out
               </button>
-              <Link href="/checkout" passHref>
-                <button className="bg-red-500 py-2 px-4 rounded-full cursor-pointer hover:bg-red-600 text-white flex items-center gap-1 font-bold">
-                  <><IconShoppingCart className="text-white" /> {cart}</>
-                </button>
-              </Link>
             </>
           ) : (
             <>
@@ -61,6 +56,13 @@ export default function Header(): JSX.Element {
               </button>
             </>
           )}
+          <Link href="/checkout" passHref>
+            <button className="bg-red-500 py-2 px-4 rounded-full cursor-pointer hover:bg-red-600 text-white flex items-center gap-1 font-bold">
+              <>
+                <IconShoppingCart className="text-white" /> {cart}
+              </>
+            </button>
+          </Link>
         </ul>
       </nav>
     </header>

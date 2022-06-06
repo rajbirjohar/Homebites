@@ -24,7 +24,13 @@ export const useStore = create<Store>((set) => ({
   },
   removeFromCart: (id: string) => {
     set((state) => ({
-      cart: state.cart.filter((item) => item.id !== id),
+      // Filter all items that DO NOT match the id of the item to be deleted
+      // and replace the cart array.
+      cart: state.cart.filter(
+        (item, index) =>
+          // Find the first index of the id to be deleted
+          index !== state.cart.findIndex((item) => item.id === id)
+      ),
     }));
   },
   removeAll: () => {
