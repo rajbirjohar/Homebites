@@ -22,7 +22,7 @@ export default function Header(): JSX.Element {
       }`}
     >
       <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4">
-        <Link href="/">
+        <Link href="/" passHref>
           <span className="text-red-500 font-bold tracking-wide cursor-pointer">
             HomeBites
           </span>

@@ -34,8 +34,6 @@ const Checkout: NextPage = () => {
   const resetCart = useStore((state) => state.removeAll);
   const cart = useStore((state) => state.cart);
 
-  const subscribe = useStore.subscribe(console.log);
-
   const total =
     Math.trunc(
       cart.reduce((acc, val) => acc + (Number(val.price) || 0), 0) * 100
@@ -152,10 +150,20 @@ const Checkout: NextPage = () => {
               </li>
             ))}
           </ul>
-          <h4 className="flex items-center justify-between font-semibold text-2xl my-6">
-            <span>Total</span>
-            <span>${total || "0.00"}</span>
-          </h4>
+          <div className="flex flex-col my-6 gap-3">
+            <p className="flex items-center justify-between font-semibold">
+              <span>HomeBites Fee (7%)</span>
+              <span>${Math.trunc(total * 0.07 * 100) / 100}</span>
+            </p>
+            <p className="flex items-center justify-between font-semibold">
+              <span>CA Sales Tax (8.4%)</span>
+              <span>${Math.trunc(total * 0.084 * 100) / 100}</span>
+            </p>
+            <h4 className="flex items-center justify-between font-semibold text-2xl">
+              <span>Total</span>
+              <span>${Math.trunc(total * 1.07 * 1.084 * 100) / 100}</span>
+            </h4>
+          </div>
         </div>
       </section>
     </Page>
