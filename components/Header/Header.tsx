@@ -24,7 +24,7 @@ export default function Header(): JSX.Element {
       <nav className="max-w-screen-xl flex items-center justify-between mx-auto py-4">
         <Link href="/">
           <span className="text-red-500 font-bold tracking-wide cursor-pointer">
-            Homebites
+            HomeBites
           </span>
         </Link>
         <ul className="flex gap-4 items-center">

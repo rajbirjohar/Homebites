@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <Paragraph className="max-w-screen-xl flex flex-col justify-center mx-auto px-6">
           <div className="py-36">
             <h1 className="text-6xl font-bold my-4">
-              Welcome to <span className="text-red-500">Homebites</span>
+              Welcome to <span className="text-red-500">HomeBites</span>
             </h1>
             <h2 className="text-2xl text-gray-900 font-semibold my-2">
               {" "}
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
         <Paragraph className="max-w-screen-xl flex flex-col items-end mx-auto px-6 my-10">
           <h1 className="text-4xl font-bold my-4">
             Craving <span className="text-red-500">Authenticity?</span> We
-            deliver.
+            got you.
           </h1>
           <h3 className="text-xl max-w-2xl text-right text-gray-800">
             Check out our local chefs. We source the best, and most authentic

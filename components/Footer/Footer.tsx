@@ -12,8 +12,8 @@ const contactLinks = [
   "Engineering Blog",
   "Merchant Blog",
   "Gift Cards",
-  "Homebites Central",
-  "Homebites Stories",
+  "HomeBites Central",
+  "HomeBites Stories",
   "LinkedIn",
   "Glassdoor",
   "Accessibility",
@@ -37,16 +37,15 @@ const policies = [
   "Privacy",
   "Notice At Collection",
   "Delivery Locations",
-  "2022 Homebites",
+  "2022 HomeBites",
 ];
 
 const help = ["Account Details", "Order History", "Help"];
 
 const business = [
-  "Become a Driver",
   "Be a Partner Cook",
-  "Get Drivers for Deliveries",
-  "Get Homebites for Work",
+  "Get HomeBites for Work",
+  "Get HomeBites Catering"
 ];
 
 const Links = (props: { links: string[] }) => {
